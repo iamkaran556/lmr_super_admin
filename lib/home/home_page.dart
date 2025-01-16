@@ -32,15 +32,15 @@ class _homepageState extends State<homepage> {
             ),
             ListTile(
               leading: Icon(Icons.home),
-              title: Text('Home'),
+              title: Text('Dashboard'),
               onTap: () {
                 // Handle navigation to Home
                 Navigator.pop(context);
               },
             ),
             ListTile(
-              leading: Icon(Icons.settings),
-              title: Text('Settings'),
+              leading: Icon(Icons.person),
+              title: Text('Admin'),
               onTap: () {
                 // Handle navigation to Settings
                 Navigator.pop(context);
@@ -48,7 +48,7 @@ class _homepageState extends State<homepage> {
             ),
             ListTile(
               leading: Icon(Icons.info),
-              title: Text('About'),
+              title: Text('Users'),
               onTap: () {
                 // Handle navigation to About
                 Navigator.pop(context);
@@ -73,12 +73,12 @@ class _homepageState extends State<homepage> {
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          IconButton(
-                            onPressed: () {
-                              Navigator.pop(context);
-                            },
-                            icon: Icon(Icons.arrow_back_ios, color: Colors.white),
-                          ),
+                          // IconButton(
+                          //   onPressed: () {
+                          //     Navigator.pop(context);
+                          //   },
+                          //   icon: Icon(Icons.arrow_back_ios, color: Colors.white),
+                          // ),
                         ],
                       ),
                     ),
