@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:lmr_super_admin/home/home_page.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../api_service/ApiService.dart';
 import 'LoginResponse.dart';
 
@@ -21,6 +22,7 @@ class AuthProvider with ChangeNotifier {
 
     try {
       _loginResponse = await _apiService.login(email, password);
+      getToken(_loginResponse!.accessToken!);
       Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>homepage()),(route)=>false);
     } catch (error) {
       _loginResponse = null;
@@ -29,6 +31,11 @@ class AuthProvider with ChangeNotifier {
       _isLoading = false;
       notifyListeners();
     }
+  }
+  getToken(String value) async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setString("token", value);
+
   }
 }
 
